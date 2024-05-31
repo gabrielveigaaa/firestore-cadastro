@@ -1,0 +1,50 @@
+.container {
+    width: 300px;
+    margin: auto;
+    margin-top: 10%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    background-color: #ccc;
+}
+
+h2{    
+    font-weight: 500;
+    font-family: Means Web, Georgia, Times, Times New Roman;
+    font-size: 35px;
+}
+
+body{
+    background-image: url("assets/images/fundo5.jpg");
+
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="email"], input[type="text"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}

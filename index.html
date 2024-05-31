@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Cadastre-se</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+</head>
+<body>
+    <body>
+        <div class="container">
+            <h2>Insira seus Dados:</h2>
+            <br>
+            <form id="registration-form">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="phone">Número:</label><br>
+                <input type="tel" id="phone" name="phone" required><br>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </div>
+
+  
+    <script>
+//JS  
+// config do firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmc69zpigUigY7433c5qDUr4CpLmp18qI",
+            authDomain: "interface-b5e3f.firebaseapp.com",
+            projectId: "interface-b5e3f",
+            storageBucket: "interface-b5e3f.appspot.com",
+            messagingSenderId: "118072517832",
+            appId: "1:118072517832:web:0c942540e4f739c89c31fd",
+            measurementId: "G-CSK40ZRFT9"
+        };
+
+//inicializa o firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+        const db = firebase.firestore();
+
+
+        const form = document.getElementById("registration-form");
+
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+
+// add ao firestore
+            db.collection("usuario").add({
+                email: email,
+                name: name,
+                phone: phone
+            })
+            .then(() => {
+                console.log("Cadastrado com Sucesso!");
+                alert("Cadastrado com Sucesso!");
+            })
+            .catch((error) => {
+                console.error("Erro ao Cadastrar-se:", error);
+                alert("Erro ao Cadastrar-se: " + error.message);
+            });
+        });
+    </script>
+</body>
+</html>
